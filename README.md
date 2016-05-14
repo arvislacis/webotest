@@ -1,8 +1,8 @@
 # Webotest
 
-Webotest is an npm package - automated web test, used to compare two website page screenshots - local (unpublished) un public (published). `Focusing on multipage CMS websites (for example EPiServer CMS), where CMS pages are part of website's navigation`.
+**Webotest** is an npm package - automated web test, used to compare two website page screenshots - local (unpublished) un public (published). `Focusing on multipage CMS websites (for example [EPiServer CMS](http://world.episerver.com/cms/), where CMS pages are part of website's navigation`.
 
-[Webotest repository available on GitHub](https://github.com/elinale/webotest) and [Webotest package available on npm](https://www.npmjs.com/package/webotest).
+[**Webotest** repository available on GitHub](https://github.com/elinale/webotest) and [**Webotest** package available on npm](https://www.npmjs.com/package/webotest).
 
 
 ### Prerequisites
@@ -25,9 +25,9 @@ npm install webotest
 
 ### Running the tests
 
-Run tests from webotest directory, for example: `C:\Users\elinale\node_modules\webotest` ... `This directory also is, where all test results are saved`.
+Run tests in console from **webotest** directory, for example: `C:\Users\elinale\node_modules\webotest` ... `This directory also is, where all test results are saved`.
 
-There is only one command to run webotest:
+There is only one command to run **webotest**:
 
 ```
 node web-tester.js --localUrl=http://local_website --publicUrl=http://public_website
@@ -47,7 +47,7 @@ etc.
 
 `!` Always write down the protocol as shown in example, otherwise tests won't be run.
 
-`!` Remember to keep in sync content between local and public websites and identical navigation structure (links), as webotest relies on that. Again, great to work with websites created on EPiServer CMS basis, as it allows to import/export website contents.
+`!` Remember to keep in sync content between local and public websites and identical navigation structure (links), as **webotest** relies on that. Again, great to work with websites created on [EPiServer CMS](http://world.episerver.com/cms/) basis, as it allows to import/export website contents.
 
 ### Why to test?
 

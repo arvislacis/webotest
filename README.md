@@ -1,6 +1,6 @@
 # Webotest
 
-Webotest is an npm package - automated web test, used to compare two website page screenshots - local (unpublished) un public (published). `Focusing on multipage CMS websites, where CMS pages are part of website's navigation`.
+Webotest is an npm package - automated web test, used to compare two website page screenshots - local (unpublished) un public (published). `Focusing on multipage CMS websites (for example EPiServer CMS), where CMS pages are part of website's navigation`.
 
 [Webotest repository available on GitHub](https://github.com/elinale/webotest) and [Webotest package available on npm](https://www.npmjs.com/package/webotest).
 
@@ -47,6 +47,7 @@ etc.
 
 `!` Always write down the protocol as shown in example, otherwise tests won't be run.
 
+`!` Remember to keep in sync content between local and public websites and identical navigation structure (links), as webotest relies on that. Again, great to work with websites created on EPiServer CMS basis, as it allows to import/export website contents.
 
 ### Why to test?
 

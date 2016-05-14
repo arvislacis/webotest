@@ -61,7 +61,6 @@ function uniqueLinks(array) {
 function getRelativeLinks($) {
 	createFileDirectory(topDirectoryName + "/" + getSubDirectoryName(localUrl));
 	
-	//localRelativeLinks.push(localUrl);
 	var relativeLinks = $("a[href^='/']");
 	relativeLinks.each(function() {
 		allRelativeLinks.push($(this).attr('href'));

@@ -1,6 +1,6 @@
 # Webotest
 
-Webotest is an npm package - automated web test, used to compare two website page screenshots - local (unpublished) un public (published). Focusing on multipage CMS websites, where CMS pages are part of website's navigation.
+Webotest is an npm package - automated web test, used to compare two website page screenshots - local (unpublished) un public (published). `Focusing on multipage CMS websites, where CMS pages are part of website's navigation`.
 
 [Webotest repository available on GitHub](https://github.com/elinale/webotest) and [Webotest package available on npm](https://www.npmjs.com/package/webotest).
 
@@ -13,7 +13,7 @@ Website navigation structure has to be identical to run successful test - otherw
 
 Only publicly available pages will be read in website navigation to create comparement.
 
-Using hyperlink `<a></a>` href data to get hierachical structure of website.
+`!` Using hyperlink `<a></a>` href data to get hierachical structure of website.
 
 
 ### Installing
@@ -25,7 +25,7 @@ npm install webotest
 
 ### Running the tests
 
-Run tests from webotest directory, for example: `C:\Users\elinale\node_modules\webotest` ...
+Run tests from webotest directory, for example: `C:\Users\elinale\node_modules\webotest` ... `This directory also is, where all test results are saved`.
 
 There is only one command to run webotest:
 
@@ -80,4 +80,4 @@ This project is licensed under the MIT License.
 
 ### Acknowledgments
 
-Other npm packages also were used, to make thing happen, check the `package.json` file to see the list of dependencies and under `other_resources` directory.
+Other npm packages also were used, to make things happen, check the `package.json` file to see the list of dependencies and under `other_resources` directory.

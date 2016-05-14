@@ -25,6 +25,8 @@ npm install webotest
 
 ### Running the tests
 
+Run tests from webotest directory, for example: `C:\Users\elinale\node_modules\webotest` ...
+
 There is only one command to run webotest:
 
 ```

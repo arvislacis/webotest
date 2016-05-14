@@ -48,7 +48,7 @@ etc.
 
 ### Why to test?
 
-To prevent unwanted changes in website design, ease job with bug reports - just check localhost:8082 after you get notification "Listening to localhost" in console.
+To prevent unwanted changes in website design, ease job with bug reports - just check **localhost:8082** after you get notification "Listening to localhost" in console.
 
 `!` Note, that html files can be overviewed in browser while local server is running, as they are created dynamically and get data from server side.
 

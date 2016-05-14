@@ -73,7 +73,6 @@ function getRelativeLinks($) {
 function addPublicRelativeLinks() {
 	createFileDirectory(topDirectoryName + "/" + getSubDirectoryName(publicUrl));
 	
-	//publicRelativeLinks.push(publicUrl);
 	allRelativeLinks.forEach(function(i){
 		publicRelativeLinks.push(publicUrl + i);
 	});
@@ -248,7 +247,7 @@ function createImageDifference() {
 			},
 			errorType: 'movement',
 		});
-		//allRelativeLinks.push("");
+
 		var links = uniqueLinks(allRelativeLinks);
 		var diffs = [];
 		

@@ -22,6 +22,9 @@ Only publicly available pages will be read in website navigation to create compa
 npm install webotest
 ```
 
+```
+!!!Package currently works only with npm2!!!
+```
 
 ### Running the tests
 

@@ -143,7 +143,7 @@ function createLocalServer(data, links, topDirectoryName, createFileDirectory, v
 				'}' +
 			'});' +
 			'function data(){' +
-				'if($("input[id=c-height]").is(":checked")) {' +
+				'if($("input[id=c-width]").is(":checked")) {' +
 					'$.plot($("#height-width"), ' +
 						'[' +
 							'{' +
@@ -160,7 +160,7 @@ function createLocalServer(data, links, topDirectoryName, createFileDirectory, v
 							'yaxes: [{ position: "left", axisLabel: "Pixels"}]' +
 						'});' +
 				'}' +
-				'if($("input[id=c-width]").is(":checked")) {' +
+				'if($("input[id=c-height]").is(":checked")) {' +
 					'$.plot($("#height-width"),' +
 					'[' +
 						'{' +

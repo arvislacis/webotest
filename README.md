@@ -1,6 +1,6 @@
 # Webotest
 
-**Webotest** is an npm package - automated web test, used to compare two website page screenshots - local (unpublished) un public (published). `Focusing on multipage CMS websites (for example `[EPiServer CMS](http://world.episerver.com/cms/)`, where CMS pages are part of website's navigation`.
+**Webotest** is an npm package - automated web test, used to compare two website page screenshots - local (unpublished) un public (published). `Focusing developement on multipage CMS websites (like `[EPiServer CMS](http://world.episerver.com/cms/)`, where CMS pages are part of website's navigation`.
 
 [**Webotest** repository available on GitHub](https://github.com/elinale/webotest) and [**Webotest** package available on npm](https://www.npmjs.com/package/webotest).
 
@@ -9,12 +9,22 @@
 
 You need to have [installed npm and Node.js](https://docs.npmjs.com/getting-started/installing-node) on your machine.
 
+```
 Website navigation structure has to be identical to run successful test - otherwise there is no use to run tests, as they won't bring up the necessary and proper results.
+```
 
+```
 Only publicly available pages will be read in website navigation to create comparement.
+```
 
-`!` Using hyperlink `<a></a>` href data to get hierachical structure of website.
+```
+NOTE: Using hyperlink `<a></a>` href data to get hierachical structure of website.
+If none of the hyperlinks are detected, test won't return expected results.
+```
 
+```
+NOTE: Internet connection failures can cause screenshot making issues.
+```
 
 ### Installing
 
@@ -23,7 +33,9 @@ npm install webotest
 ```
 
 ```
-!!!Package currently works only with npm2!!!
+Package's current version works only with npm2.
+
+Working to support it on npm3.
 ```
 
 ### Running the tests
@@ -50,7 +62,7 @@ etc.
 
 `!` Always write down the protocol as shown in example, otherwise tests won't be run.
 
-`!` Remember to keep in sync content between local and public websites and identical navigation structure (links), as **webotest** relies on that. Again, great to work with websites created on [EPiServer CMS](http://world.episerver.com/cms/) basis, as it allows to import/export website contents.
+`!` Remember to keep in sync content between local and public websites and identical navigation structure (links), as **webotest** relies on that. Again, great and developed to work with websites created on [EPiServer CMS](http://world.episerver.com/cms/) basis, as it allows to import/export website contents.
 
 ### Why to test?
 

@@ -1,20 +1,20 @@
-var fs = require('fs');
-var express = require('express');
+var fs = require("fs");
+var express = require("express");
 var app = express();
-var mustacheExpress = require('mustache-express');
+var mustacheExpress = require("mustache-express");
 
-function createLocalServer(data, links, topDirectoryName, createFileDirectory, viewLinkSpecialCharacters, getSubDirectoryName, localUrl, publicUrl, imageResults, specialCharacters){
+function createLocalServer(data, links, topDirectoryName, createFileDirectory, viewLinkSpecialCharacters, getSubDirectoryName, localUrl, publicUrl, imageResults, specialCharacters) {
 	createFileDirectory(topDirectoryName + "/" + "html");
 	var host = "localhost";
 	var port = 8082;
 
-	app.engine('html', mustacheExpress());
-	app.set('view engine', 'html');
-	app.set('views', __dirname + "/" + topDirectoryName + "/" + "html");
+	app.engine("html", mustacheExpress());
+	app.set("view engine", "html");
+	app.set("views", __dirname + "/" + topDirectoryName + "/" + "html");
 	app.use(express.static(__dirname + "/" + topDirectoryName));
 	app.use(express.static(__dirname));
-	
-	var head = 
+
+	var head =
 		'<head>' +
 			'<meta charset="utf-8">' +
 			'<title>Overview</title>' +
@@ -33,7 +33,7 @@ function createLocalServer(data, links, topDirectoryName, createFileDirectory, v
 			'<script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>' +
 			' <script language="javascript" type="text/javascript" src="./other_resources/jquery.flot.axislabels.js"></script>' +
 		'</head>';
-	
+
 	var html = '<!DOCTYPE html>' +
 	'<html lang="en">' +
 		head +
@@ -142,7 +142,7 @@ function createLocalServer(data, links, topDirectoryName, createFileDirectory, v
 					'$("#tooltip").hide();' +
 				'}' +
 			'});' +
-			'function data(){' +
+			'function data() {' +
 				'if($("input[id=c-width]").is(":checked")) {' +
 					'$.plot($("#height-width"), ' +
 						'[' +
@@ -214,27 +214,27 @@ function createLocalServer(data, links, topDirectoryName, createFileDirectory, v
 						'lines: { show: true, fillColor: "#F39C12" },' +
 						'label: "Difference percentage", color: "#F39C12"' +
 					'}' +
-				'],' + 
+				'],' +
 				'{' +
 					'xaxes: [{ axisLabel: "Difference image/link number", tickSize: 1}],' +
 					'grid: { hoverable: true},' +
 					'yaxes: [{ position: "left", axisLabel: "Percents"}]' +
 				'});' +
 			'}' +
-			'$(function(){' +
+			'$(function() {' +
 				'data();' +
 				'timeAndPerc();' +
 				'$("input[id]").click(function() {' +
-					'data();' +	
+					'data();' +
 				'});' +
 			'});' +
-			'$(window).resize(function(){' +
+			'$(window).resize(function() {' +
 				'data();' +
 				'timeAndPerc();' +
 			'});' +
 		'</script>' +
 	'</html>';
-	
+
 	var htmlEach = '<!DOCTYPE html>' +
 	'<html lang="en"' +
 		head +
@@ -270,24 +270,24 @@ function createLocalServer(data, links, topDirectoryName, createFileDirectory, v
 			'</div>' +
 		'</body>' +
 	'</html>';
-	
-	var stream = fs.createWriteStream(topDirectoryName + '/html/' + 'index.html');
-	stream.once('open', function(){
+
+	var stream = fs.createWriteStream(topDirectoryName + "/html/" + "index.html");
+	stream.once("open", function() {
 		stream.write(html);
 		stream.end();
 	});
-	
-	links.forEach(function(i){
-		var streamEach = fs.createWriteStream(topDirectoryName + '/html/' + i.replace(viewLinkSpecialCharacters, '_') + '.html');
-		streamEach.once('open', function(){
+
+	links.forEach(function(i) {
+		var streamEach = fs.createWriteStream(topDirectoryName + "/html/" + i.replace(viewLinkSpecialCharacters, "_") + ".html");
+		streamEach.once("open", function() {
 			streamEach.write(htmlEach);
 			streamEach.end();
 		});
 	});
-	
+
 	app.get("/", function(req, res) {
 		res.status(200);
-		
+
 		var pages = {
 			"webpage": [],
 			"misMatchPercentageData": [],
@@ -295,14 +295,14 @@ function createLocalServer(data, links, topDirectoryName, createFileDirectory, v
 			"dimensionDifferenceWidth": [],
 			"dimensionDifferenceHeight": []
 		};
-		
-		links.forEach(function(i){
+
+		links.forEach(function(i) {
 			pages.webpage.push({
-				"imgSrc": getSubDirectoryName(localUrl) + "/images/" + localUrl.replace(specialCharacters, '_') + i.replace(specialCharacters, '_') + ".png",
-				"viewLink": i.replace(viewLinkSpecialCharacters, '_'),
+				"imgSrc": getSubDirectoryName(localUrl) + "/images/" + localUrl.replace(specialCharacters, "_") + i.replace(specialCharacters, "_") + ".png",
+				"viewLink": i.replace(viewLinkSpecialCharacters, "_"),
 				"id": links.indexOf(i) + 1,
-				"name": function(){
-					return i.replace(viewLinkSpecialCharacters, ' ') == " " ? "Index" : i.replace(viewLinkSpecialCharacters, ' ').substr(0, 2).toUpperCase() + i.replace(viewLinkSpecialCharacters, ' ').substr(2).toLowerCase();
+				"name": function() {
+					return i.replace(viewLinkSpecialCharacters, " ") == " " ? "Index" : i.replace(viewLinkSpecialCharacters, " ").substr(0, 2).toUpperCase() + i.replace(viewLinkSpecialCharacters, " ").substr(2).toLowerCase();
 				}
 			});
 			pages.misMatchPercentageData.push({
@@ -338,26 +338,25 @@ function createLocalServer(data, links, topDirectoryName, createFileDirectory, v
 				]
 			});
 		});
-		res.render('index', pages);
+		res.render("index", pages);
 	});
-	
-	links.forEach(function(i){
-		app.get("/" + i.replace(viewLinkSpecialCharacters, '_'), function(req, res) {
+
+	links.forEach(function(i) {
+		app.get("/" + i.replace(viewLinkSpecialCharacters, "_"), function(req, res) {
 			res.status(200);
-			
+
 			var page = {
-				"localImgSrc": getSubDirectoryName(localUrl) + "/images/" + localUrl.replace(specialCharacters, '_') + i.replace(specialCharacters, '_') + ".png",
-				"publicImgSrc": getSubDirectoryName(publicUrl) + "/images/" + publicUrl.replace(specialCharacters, '_') + i.replace(specialCharacters, '_') + ".png",
-				"diffImgSrc" : imageResults + "/" + i.replace(specialCharacters, '_') + ".png"
+				"localImgSrc": getSubDirectoryName(localUrl) + "/images/" + localUrl.replace(specialCharacters, "_") + i.replace(specialCharacters, "_") + ".png",
+				"publicImgSrc": getSubDirectoryName(publicUrl) + "/images/" + publicUrl.replace(specialCharacters, "_") + i.replace(specialCharacters, "_") + ".png",
+				"diffImgSrc" : imageResults + "/" + i.replace(specialCharacters, "_") + ".png"
 			};
-			
-			res.render(i.replace(viewLinkSpecialCharacters, '_'), page);
+
+			res.render(i.replace(viewLinkSpecialCharacters, "_"), page);
 		});
 	});
-		
-	app.listen(port, function(){
-		console.log("");
-		console.log("Listening to localhost");
+
+	app.listen(port, function() {
+		console.log("\nListening to localhost:8082...");
 	});
 }
 
